@@ -1,116 +1,98 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Food Market</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Market - Dụng cụ & Nguyên liệu</title>
+    <link rel="stylesheet" href="design.css">
+    <!-- Thêm icon từ FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<header>
-<div class="topbar">
-<div class="logo">FoodMarket</div>
+    <!-- Header phong cách Shopee -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">FOODIE<span>SHOP</span></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm dụng cụ, nguyên liệu ngay...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
 
-<div class="search-box">
-<input type="text" placeholder="Tìm dụng cụ nấu ăn, nguyên liệu...">
-<button>Tìm</button>
-</div>
+    <main class="container main-layout">
+        <!-- Sidebar Danh mục -->
+        <aside class="sidebar">
+            <h3><i class="fas fa-bars"></i> DANH MỤC</h3>
+            <ul>
+                <li class="active"><a href="#">Tất cả sản phẩm</a></li>
+                <li><a href="#">Dụng cụ nấu ăn</a></li>
+                <li><a href="#">Nguyên liệu chế biến</a></li>
+                <li><a href="#">Sản phẩm bán thành phẩm</a></li>
+                <li><a href="#">Gia vị đặc sản</a></li>
+                <li><a href="#">Đồ dùng làm bánh</a></li>
+            </ul>
+        </aside>
 
-<div class="nav-icons">
-<a href="#">🛒 Giỏ hàng</a>
-<a href="#">👤 Tài khoản</a>
-</div>
-</div>
+        <!-- Danh sách sản phẩm -->
+        <section class="products">
+            <div class="filter-bar">
+                Sắp xếp theo: <span>Phổ biến</span> <span>Mới nhất</span> <span>Bán chạy</span>
+            </div>
 
-<nav class="menu">
-<a href="#">Trang chủ</a>
-<a href="#">Dụng cụ nấu ăn</a>
-<a href="#">Nguyên liệu</a>
-<a href="#">Bán thành phẩm</a>
-<a href="#">Khuyến mãi</a>
-</nav>
-</header>
+            <div class="product-grid">
+                <!-- Sản phẩm 1 -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1594385208974-2e75f9d8a847?auto=format&fit=crop&w=300&q=80')"></div>
+                    <div class="product-info">
+                        <h4>Bộ Nồi Inox Cao Cấp</h4>
+                        <p class="price">550.000đ</p>
+                        <p class="sold">Đã bán 1.2k</p>
+                    </div>
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                </div>
 
-<!-- BANNER -->
-<section class="banner">
-<h1>Chuẩn bị bữa ăn chất lượng tại nhà</h1>
-<p>Dụng cụ • Nguyên liệu • Thực phẩm tiện lợi</p>
-<button>Mua ngay</button>
-</section>
+                <!-- Sản phẩm 2 -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1516685018646-527ad952f519?auto=format&fit=crop&w=300&q=80')"></div>
+                    <div class="product-info">
+                        <h4>Set Sơ Chế Lẩu Thái</h4>
+                        <p class="price">120.000đ</p>
+                        <p class="sold">Đã bán 850</p>
+                    </div>
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                </div>
 
-<!-- CATEGORY -->
-<section class="categories">
-<h2>Danh mục</h2>
+                <!-- Sản phẩm 3 -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1589113126841-f63ec2557e96?auto=format&fit=crop&w=300&q=80')"></div>
+                    <div class="product-info">
+                        <h4>Dao Bếp Nhật Bản</h4>
+                        <p class="price">320.000đ</p>
+                        <p class="sold">Đã bán 300</p>
+                    </div>
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                </div>
 
-<div class="category-grid">
-
-<div class="category-card">
-🍳
-<p>Dụng cụ nấu ăn</p>
-</div>
-
-<div class="category-card">
-🥦
-<p>Nguyên liệu</p>
-</div>
-
-<div class="category-card">
-🍱
-<p>Bán thành phẩm</p>
-</div>
-
-<div class="category-card">
-🍰
-<p>Đồ làm bánh</p>
-</div>
-
-</div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="products">
-
-<h2>Sản phẩm nổi bật</h2>
-
-<div class="product-grid">
-
-<div class="product-card">
-<img src="https://picsum.photos/200">
-<h3>Chảo chống dính</h3>
-<p class="price">120.000đ</p>
-<button>Thêm vào giỏ</button>
-</div>
-
-<div class="product-card">
-<img src="https://picsum.photos/201">
-<h3>Bộ dao nhà bếp</h3>
-<p class="price">250.000đ</p>
-<button>Thêm vào giỏ</button>
-</div>
-
-<div class="product-card">
-<img src="https://picsum.photos/202">
-<h3>Gia vị nấu ăn</h3>
-<p class="price">80.000đ</p>
-<button>Thêm vào giỏ</button>
-</div>
-
-<div class="product-card">
-<img src="https://picsum.photos/203">
-<h3>Bánh mì đông lạnh</h3>
-<p class="price">50.000đ</p>
-<button>Thêm vào giỏ</button>
-</div>
-
-</div>
-</section>
-
-<footer>
-<p>© 2026 FoodMarket - Cooking Made Easy</p>
-</footer>
+                <!-- Sản phẩm 4 -->
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=300&q=80')"></div>
+                    <div class="product-info">
+                        <h4>Sốt Ướp Đồ Nướng</h4>
+                        <p class="price">45.000đ</p>
+                        <p class="sold">Đã bán 2.1k</p>
+                    </div>
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
 
 </body>
 </html>
