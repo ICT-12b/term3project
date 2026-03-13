@@ -167,26 +167,29 @@ body {
     gap: 15px;
 }
 
+
+.product-img {
+    width: 100%;       /* Chiều rộng chiếm hết khung thẻ cha */
+    height: 200px;      /* Cố định chiều cao để các ô bằng nhau */
+    object-fit: cover;  /* QUAN TRỌNG: Ảnh tự co giãn phủ kín khung mà KHÔNG bị méo */
+    display: block;
+    border-bottom: 1px solid #f0f0f0; /* Thêm đường kẻ nhẹ ngăn cách ảnh và chữ */
+}
+
+/* Đảm bảo khung bao ngoài không bị tràn ảnh ra ngoài */
 .product-card {
     background: white;
-    border-radius: 4px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
+    border-radius: 8px;
+    overflow: hidden;   /* Cắt phần ảnh thừa nếu có bo góc */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #FFD8DF; /* Viền hồng nhạt giống ảnh mẫu của bạn */
+    transition: 0.3s;
 }
 
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border: 1px solid #FFAAB8;
-}
-
-.product-img {
-    width: 100%;       /* Chiều rộng bằng khung chứa */
-    height: 200px;      /* Chiều cao cố định */
-    object-fit: cover;  /* Giúp ảnh không bị méo, tự động cắt đẹp */
-    display: block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-3px);
 }
 
 .product-card {
