@@ -235,3 +235,127 @@ body {
 .add-to-cart:hover {
     background: #8ecf70;
 }
+/* --- GIAO DIỆN GIỎ HÀNG --- */
+.cart-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.cart-overlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.cart-sidebar {
+    position: absolute;
+    top: 0;
+    right: -400px; /* Ẩn sang bên phải */
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+
+.cart-overlay.active .cart-sidebar {
+    right: 0; /* Trượt vào màn hình */
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #FFAAB8;
+}
+
+.close-btn {
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #A8DF8E;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #FFAAB8;
+}
+
+.cart-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h4 {
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.cart-item-info p {
+    color: #FFD8DF;
+    font-weight: bold;
+}
+
+.remove-btn {
+    background: #FFD8DF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid #FFAAB8;
+}
+
+.cart-footer h3 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.checkout-btn {
+    width: 100%;
+    padding: 15px;
+    background: #FFD8DF;
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background: #F0FFDF;
+}
