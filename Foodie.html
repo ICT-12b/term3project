@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Market - Dụng cụ & Nguyên liệu</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Thêm icon từ FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Thêm một chút CSS để danh mục có con trỏ tay khi rê vào */
+        .sidebar ul li { cursor: pointer; }
+        /* Hiệu ứng mượt khi ẩn hiện sản phẩm */
+        .product-card { transition: opacity 0.3s ease; }
+    </style>
+</head>
+<body>
+
+    <!-- Header phong cách Shopee -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">FOODIE<span>SHOP</span></div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm dụng cụ, nguyên liệu ngay...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-layout">
+        <!-- Sidebar Danh mục -->
+        <aside class="sidebar">
+            <h3><i class="fas fa-bars"></i> DANH MỤC</h3>
+            <ul id="category-menu">
+                <!-- Thêm data-filter để đánh dấu loại sản phẩm -->
+                <li class="active" data-filter="all"><a>Tất cả sản phẩm</a></li>
+                <li data-filter="dung-cu"><a>Dụng cụ nấu ăn</a></li>
+                <li data-filter="nguyen-lieu"><a>Nguyên liệu chế biến</a></li>
+                <li data-filter="ban-thanh-pham"><a>Sản phẩm bán thành phẩm</a></li>
+                <li data-filter="gia-vi"><a>Gia vị đặc sản</a></li>
+                <li data-filter="lam-banh"><a>Đồ dùng làm bánh</a></li>
+            </ul>
+        </aside>
+
+        <!-- Danh sách sản phẩm -->
+        <section class="products">
+            <div class="filter-bar">
+                Sắp xếp theo: <span>Phổ biến</span> <span>Mới nhất</span> <span>Bán chạy</span>
+            </div>
+
+            <div class="product-grid" id="product-container">
+                <!-- Sản phẩm 1: Thuộc nhóm dụng cụ -->
+                <div class="product-card" data-category="dung-cu">
+                    <div class="product-img" style="background-image: url('https://germatek.com.vn/wp-content/uploads/2023/06/Bo-noi-inox-Germatek-Alpha-6-scaled.jpg')"></div>
+                    <div class="product-info">
+                        <h4>Bộ Nồi Inox Cao Cấp</h4>
+                        <p class="price">550.000đ</p>
+                        <p class="sold">Đã bán 1.2k</p>
+                    </div>
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Sản phẩm 2: Thuộc nhóm bán thành phẩm -->
+                <div class="product-card" data-category="ban-thanh-pham">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1516685018646-527ad952f519?auto=format&fit=crop&w=300&q=80')"></div>
+                    <div class="product-info">
+                        <h4>Set Sơ Chế Lẩu Thái</h4>
+                        <p class="price">120.000đ</p>
+                        <p class="sold">Đã bán 850</p>
+                    </div>
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Sản phẩm 3: Thuộc nhóm dụng cụ -->
+                <div class="product-card" data-category="dung-cu">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1589113126841-f63ec2557e96?auto=format&fit=crop&w=300&q=80')"></div>
+                    <div class="product-info">
+                        <h4>Dao Bếp Nhật Bản</h4>
+                        <p class="price">320.000đ</p>
+                        <p class="sold">Đã bán 300</p>
+                    </div>
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                </div>
+
+                <!-- Sản phẩm 4: Thuộc nhóm nguyên liệu -->
+                <div class="product-card" data-category="nguyen-lieu">
+                    <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=300&q=80')"></div>
+                    <div class="product-info">
+                        <h4>Sốt Ướp Đồ Nướng</h4>
+                        <p class="price">45.000đ</p>
+                        <p class="sold">Đã bán 2.1k</p>
+                    </div>
+                    <button class="add-to-cart">Thêm vào giỏ</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Đoạn Script xử lý bấm vào danh mục -->
+    <script>
+        document.querySelectorAll('#category-menu li').forEach(item => {
+            item.addEventListener('click', function() {
+                // 1. Đổi màu mục đang chọn (Active)
+                document.querySelectorAll('#category-menu li').forEach(li => li.classList.remove('active'));
+                this.classList.add('active');
+
+                // 2. Lấy tên danh mục muốn lọc
+                const filter = this.getAttribute('data-filter');
+                const products = document.querySelectorAll('.product-card');
+
+                // 3. Hiển thị sản phẩm tương ứng
+                products.forEach(product => {
+                    const category = product.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        product.style.display = 'block'; // Hiện
+                    } else {
+                        product.style.display = 'none';  // Ẩn
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
