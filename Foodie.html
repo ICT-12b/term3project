@@ -387,7 +387,7 @@
                 if(e.target === cartOverlay) cartOverlay.classList.remove('active');
             });
 
-            // --- Sự kiện click "Thêm vào giỏ" ---
+            // --- "Thêm vào giỏ" ---
             document.querySelectorAll('.add-to-cart').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const card = this.closest('.product-card');
@@ -410,7 +410,7 @@
                         cart.push({ name, price, imageUrl, quantity: 1 }); // Chưa có thì thêm mới
                     }
 
-                    // Đổi chữ nút tạm thời để báo hiệu
+                    
                     const originalText = this.innerText;
                     this.innerText = "Đã thêm ✔";
                     this.style.background = "#2ed573"; // Đổi màu xanh lá
@@ -450,7 +450,7 @@
                 cartTotalPrice.innerText = total.toLocaleString('vi-VN') + 'đ'; // Cập nhật tổng tiền
             }
 
-            // --- Hàm Xóa 1 sản phẩm khỏi giỏ (Gắn vào window để html inline onclick gọi được) ---
+            // --- Hàm Xóa 1 sản phẩm khỏi giỏ  ---
             window.removeCartItem = function(index) {
                 cart.splice(index, 1);
                 updateCartUI();
